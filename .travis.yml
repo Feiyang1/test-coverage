@@ -1,0 +1,41 @@
+language: node_js
+node_js:
+  - 8
+cache: yarn
+
+# Define global C++ compiler version
+env:
+  global:
+    - CXX=g++-4.8
+install:
+  # --frozen-lockfile doesn’t generate a yarn.lock lockfile and should fail if an update is needed.
+  # This will make sure that yarn.lock file in the PR is consistent with package.json.
+  #
+  # Due to a yarn issue (https://github.com/yarnpkg/yarn/issues/5840), --frozen-lockfile doesn't
+  # actually fail if an update is required, but integrity check from tools/pretest.js will catch
+  # the issue, so it still works as expected.
+  - npm install
+
+
+# Misc Addons/Configs
+dist: trusty
+sudo: required
+addons:
+  firefox: "66.0"
+  apt:
+    sources:
+      - google-chrome
+      - ubuntu-toolchain-r-test
+    packages:
+      - google-chrome-stable
+      - g++-4.8
+
+matrix:
+  fast_finish: true
+
+jobs:
+  include:
+    - name: My test-coverage (Chrome) Test
+      stage: test
+      script: npm run test
+      after_success:
