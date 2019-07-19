@@ -11,11 +11,11 @@
   "author": "mememe",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "tst": "nyc mocha"
+    "coveralls": "cat coverage/report-lcov/lcov.info | coveralls"
   },
   "devDependencies": {
+    "coveralls": "3.0.5",
     "chai": "^4.1.2",
-    "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",

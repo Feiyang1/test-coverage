@@ -38,4 +38,4 @@ jobs:
     - name: My test-coverage (Chrome) Test
       stage: test
       script: npm run test
-      after_success:
+      after_success: npm run coveralls
