@@ -1,0 +1,30 @@
+{
+  "name": "test-coverage",
+  "version": "1.0.0",
+  "description": "Example of setting up test automatation using Karma and Mocha",
+  "keywords": [
+    "javascript",
+    "karma",
+    "mocha",
+    "automation"
+  ],
+  "author": "mememe",
+  "scripts": {
+    "test": "karma start karma.conf.js",
+    "coveralls": "cat coverage/report-lcov/lcov.info | coveralls"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.5",
+    "chai": "^4.1.2",
+    "karma": "4.2.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.2",
+    "karma-coverage-istanbul-reporter": "2.0.5",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1"
+  }
+}
